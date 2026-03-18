@@ -1,0 +1,69 @@
+/* Styling tổng thể cho trò chơi */
+.game {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.game-board {
+  margin-right: 20px;
+}
+
+/* Styling cho phần trạng thái (người chơi tiếp theo/người thắng) */
+.status {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Styling cho hàng của bảng (Board) */
+.board-row {
+  clear: both;
+  display: flex;
+}
+
+/* Styling cho mỗi ô vuông (Square) */
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+  cursor: pointer;
+  box-sizing: border-box; /* Đảm bảo padding và border không làm tăng kích thước */
+}
+
+.square:focus {
+  outline: none;
+  background: #ddd;
+}
+
+/* Cải thiện kích thước và đường viền của Board Container */
+/* Các class size-40 và border-2 border-dashed có thể là Tailwind CSS,
+   nên tôi mô phỏng lại bằng CSS thuần nếu cần. 
+   Nếu muốn giữ lại Tailwind, thì chỉ cần bỏ qua phần này trong CSS thuần. */
+/* Nếu giả định .size-40 tương đương với 128px và border-2 tương đương 2px */
+.size-40 {
+  /* Chiều rộng của 3 ô vuông + 2px margin/border * 2 */
+  width: calc(3 * 34px + 2px * 2); 
+  height: calc(3 * 34px + 2px * 2);
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-dashed {
+  border-style: dashed;
+}
+
+.border-2.border-dashed {
+  border: 2px dashed #ccc;
+}
