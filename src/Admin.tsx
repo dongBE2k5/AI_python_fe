@@ -1,4 +1,5 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect } from 'react';
+import type { ChangeEvent } from 'react';
 const API_URL = import.meta.env.VITE_API_URL;
 // Định nghĩa interface cho phản hồi từ API (nếu cần mở rộng sau này)
 interface AdminFileData {
