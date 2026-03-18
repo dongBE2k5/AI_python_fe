@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
-
+const API_URL = import.meta.env.VITE_API_URL;
 interface Message {
   sender: 'user' | 'bot';
   text: string;
@@ -47,7 +47,7 @@ const User: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://ai-python-233788637423.asia-southeast1.run.app/api/chat', {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: text }),

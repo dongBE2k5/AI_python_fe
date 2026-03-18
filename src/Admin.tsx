@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-
+const API_URL = import.meta.env.VITE_API_URL;
 // Định nghĩa interface cho phản hồi từ API (nếu cần mở rộng sau này)
 interface AdminFileData {
   files: string[];
@@ -14,7 +14,7 @@ const Admin: React.FC = () => {
   // 1. Lấy danh sách file từ server
   const fetchFiles = async (): Promise<void> => {
     try {
-      const res = await fetch('https://ai-python-233788637423.asia-southeast1.run.app/api/admin/files');
+      const res = await fetch(`${API_URL}/api/admin/files`);
       const data: AdminFileData = await res.json();
       setFiles(data.files || []);
     } catch (error) {
@@ -39,7 +39,7 @@ const Admin: React.FC = () => {
     formData.append('file', fileList[0]);
 
     try {
-      const res = await fetch('https://ai-python-233788637423.asia-southeast1.run.app/api/admin/upload', {
+      const res = await fetch(`${API_URL}/api/admin/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -64,7 +64,7 @@ const Admin: React.FC = () => {
     if (!window.confirm(`Bạn có chắc chắn muốn xóa file "${name}" không?`)) return;
     
     try {
-      const res = await fetch(`https://ai-python-233788637423.asia-southeast1.run.app/api/admin/files/${name}`, { 
+      const res = await fetch(`${API_URL}/api/admin/files/${name}`, { 
         method: 'DELETE' 
       });
       if (res.ok) {
@@ -84,7 +84,7 @@ const Admin: React.FC = () => {
     setStatus('⏳ Đang Rebuild Index (Mất vài phút)...');
     
     try {
-      const res = await fetch('https://ai-python-233788637423.asia-southeast1.run.app/api/admin/rebuild-index', { 
+      const res = await fetch(`${API_URL}/api/admin/rebuild-index`, { 
         method: 'POST' 
       });
       
