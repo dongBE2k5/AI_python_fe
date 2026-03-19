@@ -83,7 +83,7 @@ const User: React.FC = () => {
             {/* Logo TDC (Giả lập hoặc dùng Link thật) */}
             <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1 shadow-inner overflow-hidden">
                <img 
-                 src="https://tdc.edu.vn/logo.png" 
+                 src="" 
                  alt="TDC Logo" 
                  className="w-full h-full object-contain"
                  onError={(e) => { e.currentTarget.src = ''; }} 
